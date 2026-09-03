@@ -1,146 +1,261 @@
 <title>Week 1 Picks</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=IBM+Plex+Mono:wght@500&display=swap">
 <style>
-:root{--bg:#f4f5f2;--card:#ffffff;--ink:#17202a;--mute:#5d6672;--line:#dfe3df;--navy:#14213d;--navy-ink:#ffffff;--ok:#1f6f43;--ok-bg:#e6f2ea;--bad:#9a2f2f;--bad-bg:#f8e7e7;--warn:#8a6d1f;--warn-bg:#fbf1dc;--alt:#f7f8f6}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#121417;--card:#1b1f24;--ink:#e9ebe7;--mute:#9aa3ad;--line:#2b3138;--navy:#2b3a5c;--navy-ink:#ffffff;--ok:#6cc79a;--ok-bg:#16301f;--bad:#e38a8a;--bad-bg:#3a1c1c;--warn:#d9b45a;--warn-bg:#3a2f14;--alt:#20252b}}
-:root[data-theme="dark"]{--bg:#121417;--card:#1b1f24;--ink:#e9ebe7;--mute:#9aa3ad;--line:#2b3138;--navy:#2b3a5c;--navy-ink:#ffffff;--ok:#6cc79a;--ok-bg:#16301f;--bad:#e38a8a;--bad-bg:#3a1c1c;--warn:#d9b45a;--warn-bg:#3a2f14;--alt:#20252b}
+:root{--bg:#f4f5f2;--card:#ffffff;--ink:#17202a;--mute:#5d6672;--line:#dfe3df;--navy:#14213d;--navy-ink:#ffffff;--ok:#1f6f43;--ok-bg:#e6f2ea;--bad:#9a2f2f;--bad-bg:#f8e7e7;--warn:#8a6d1f;--warn-bg:#fbf1dc;--alt:#f7f8f6;--pick:#fff8e6}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#121417;--card:#1b1f24;--ink:#e9ebe7;--mute:#9aa3ad;--line:#2b3138;--navy:#2b3a5c;--navy-ink:#ffffff;--ok:#6cc79a;--ok-bg:#16301f;--bad:#e38a8a;--bad-bg:#3a1c1c;--warn:#d9b45a;--warn-bg:#3a2f14;--alt:#20252b;--pick:#33301f}}
+:root[data-theme="dark"]{--bg:#121417;--card:#1b1f24;--ink:#e9ebe7;--mute:#9aa3ad;--line:#2b3138;--navy:#2b3a5c;--navy-ink:#ffffff;--ok:#6cc79a;--ok-bg:#16301f;--bad:#e38a8a;--bad-bg:#3a1c1c;--warn:#d9b45a;--warn-bg:#3a2f14;--alt:#20252b;--pick:#33301f}
 body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 "IBM Plex Sans",-apple-system,Helvetica,Arial,sans-serif}
-main{max-width:1040px;margin:0 auto;padding:32px 20px 72px}
-header{margin-bottom:22px}
-h1{font-size:30px;margin:0 0 6px;letter-spacing:-0.01em;text-wrap:balance}
+main{max-width:1080px;margin:0 auto;padding:32px 20px 72px}
+h1{font-size:30px;margin:0 0 6px;letter-spacing:-0.01em}
 .eyebrow{font:500 12px/1 "IBM Plex Mono",ui-monospace,monospace;letter-spacing:0.08em;text-transform:uppercase;color:var(--mute);margin-bottom:10px}
-.sub{color:var(--mute);margin:0;max-width:70ch}
+.sub{color:var(--mute);margin:0;max-width:74ch}
 h2{font-size:19px;margin:34px 0 10px;padding-bottom:6px;border-bottom:2px solid var(--navy)}
-h3{font-size:16px;margin:18px 0 6px}
-p{margin:0 0 10px;max-width:74ch}
-.notice{background:var(--warn-bg);border-left:4px solid var(--warn);padding:12px 14px;border-radius:6px;margin:16px 0 22px;max-width:none}
+h3{font-size:17px;margin:0 0 4px}
+p{margin:0 0 10px;max-width:78ch}
+.notice{background:var(--warn-bg);border-left:4px solid var(--warn);padding:12px 14px;border-radius:6px;margin:16px 0 22px}
 .notice b{color:var(--warn)}
-.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 18px;margin:12px 0}
-.why{background:var(--ok-bg);border-left:4px solid var(--ok);padding:12px 14px;border-radius:6px;margin:10px 0 14px}
+.game{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 18px;margin:14px 0}
+.game.haspick{border-color:var(--ok)}
+.ghead{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:baseline;justify-content:space-between}
+.gmeta{color:var(--mute);font-size:13px}
+.gmeta b{color:var(--ink)}
+.links a{font-size:13px;margin-left:10px;color:var(--navy);text-decoration:underline}
+.why{background:var(--ok-bg);border-left:4px solid var(--ok);padding:10px 14px;border-radius:6px;margin:10px 0}
 .scroll{overflow-x:auto}
 table{border-collapse:collapse;width:100%;font-variant-numeric:tabular-nums;margin:8px 0 6px}
-th{background:var(--navy);color:var(--navy-ink);text-align:left;padding:9px 10px;font-size:13px;font-weight:600;white-space:nowrap}
-td{padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top;font-size:14px}
+th{background:var(--navy);color:var(--navy-ink);text-align:left;padding:8px 10px;font-size:12.5px;font-weight:600;white-space:nowrap}
+td{padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top;font-size:14px}
 tbody tr:nth-child(even) td{background:var(--alt)}
+tr.pick td{background:var(--pick)!important;font-weight:600}
 td.num,th.num{text-align:right;white-space:nowrap}
 .pill{display:inline-block;padding:2px 9px;border-radius:999px;font-size:12px;font-weight:600;white-space:nowrap}
 .ok{background:var(--ok-bg);color:var(--ok)}.bad{background:var(--bad-bg);color:var(--bad)}.warn{background:var(--warn-bg);color:var(--warn)}
-.big{font-size:22px;font-weight:700}
 .mono{font-family:"IBM Plex Mono",ui-monospace,monospace;font-weight:500}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin:10px 0 6px}
-.stat{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px}
-.stat .k{font-size:12px;color:var(--mute);text-transform:uppercase;letter-spacing:0.06em}
-.stat .v{font-size:26px;font-weight:700;margin-top:2px}
-.stat .d{font-size:13px;color:var(--mute)}
 .small{font-size:13px;color:var(--mute)}
+.toc{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 0}
+.toc a{font-size:12.5px;padding:4px 9px;border:1px solid var(--line);border-radius:999px;color:var(--ink);text-decoration:none;background:var(--card)}
+.toc a.haspick{border-color:var(--ok);color:var(--ok);font-weight:600}
 footer{margin-top:40px;color:var(--mute);font-size:13px;border-top:1px solid var(--line);padding-top:14px}
 @media (max-width:640px){h1{font-size:24px}td,th{font-size:13px}}
 </style>
-
 <main>
 <header>
 <div class="eyebrow">Prop Edge Engine &middot; NFL 2026 &middot; Week 1</div>
 <h1>Week 1 Picks and Analysis</h1>
-<p class="sub">Built 2026-09-02 from the DraftKings receiving-yards and receptions ladders captured at 2:10 pm PT. Every leg is a real DraftKings rung at its captured price. Team next to every name.</p>
+<p class="sub">Built from the DraftKings receiving-yards and receptions ladders captured 2026-09-02 at 14:10. Games are listed in the order DraftKings lists them, with the header the book prints. Every leg is a real rung at its captured price; odds move, so check the ladder before placing anything.</p>
 </header>
-
-<div class="notice"><b>Read this first.</b> The model behind these picks has shown no skill over last year's averages in Week 1 in three seasons of testing. These are paper picks by the engine's own rules: logged before kickoff, scored Monday against results and closing lines. Injury reports and the kickoff forecast are first reads; the Friday capture carries both.</div>
-
-<h2>The picks at a glance</h2>
-<div class="scroll"><table>
-<thead><tr><th>#</th><th>Slip</th><th class="num">DraftKings</th><th class="num">$10 returns</th><th class="num">Model: hits</th><th class="num">Price needs</th><th>Verdict</th></tr></thead>
-<tbody>
-<tr><td>1</td><td><b>Jakobi Meyers (JAX)</b> 5+ receptions</td><td class="num mono">+177</td><td class="num">$28</td><td class="num">45 in 100</td><td class="num">36 in 100</td><td><span class="pill ok">In your favor</span></td></tr>
-<tr><td>2</td><td><b>Amon-Ra St. Brown (DET)</b> 9+ receptions with <b>Jameson Williams (DET)</b> 6+ receptions, same game</td><td class="num mono">+1332 product<br><span class="small">site shows less</span></td><td class="num">$143</td><td class="num">11 in 100</td><td class="num">7 in 100</td><td><span class="pill ok">In your favor at the product</span></td></tr>
-<tr><td>3</td><td><b>Meyers (JAX)</b> 5+ rec with <b>St. Brown (DET)</b> 9+ rec, two games</td><td class="num mono">+919</td><td class="num">$102</td><td class="num">14 in 100</td><td class="num">10 in 100</td><td><span class="pill ok">In your favor</span></td></tr>
-<tr><td>4</td><td><b>Meyers (JAX)</b> with the Detroit pair, three legs</td><td class="num mono">+3865 product</td><td class="num">$397</td><td class="num">5 in 100</td><td class="num">3 in 100</td><td><span class="pill warn">Lottery ticket</span></td></tr>
+<div class="notice"><b>Read this first.</b> The model behind these picks has shown no skill over last year&#x27;s averages in Week 1 in three seasons of testing. These are paper picks by the engine&#x27;s own rules: logged before kickoff, scored Monday against results and closing lines. Injury reports and the kickoff forecast are first reads; the Friday capture carries both.</div>
+<h2>The picks</h2>
+<div class="scroll"><table><thead><tr><th>#</th><th>Game</th><th>Slip</th><th class="num">DraftKings</th><th class="num">$10 returns</th><th class="num">Model: hits</th><th class="num">Price needs</th><th>Verdict</th></tr></thead><tbody>
+<tr><td>1</td><td class="small">CLE Browns @ JAX Jaguars</td><td><b>Jakobi Meyers (JAX)</b> 5+ receptions</td><td class="num mono">+177</td><td class="num">$28</td><td class="num">45 in 100</td><td class="num">36 in 100</td><td><span class="pill ok">In your favor</span></td></tr>
+<tr><td>2</td><td class="small">NO Saints @ DET Lions</td><td><b>Amon-Ra St. Brown (DET)</b> 9+ receptions; <b>Jameson Williams (DET)</b> 6+ receptions</td><td class="num mono">+1332 product (site shows less)</td><td class="num">$143</td><td class="num">11 in 100</td><td class="num">7 in 100</td><td><span class="pill ok">In your favor at the product</span></td></tr>
+<tr><td>3</td><td class="small">CLE Browns @ JAX Jaguars<br>NO Saints @ DET Lions</td><td><b>Jakobi Meyers (JAX)</b> 5+ receptions; <b>Amon-Ra St. Brown (DET)</b> 9+ receptions</td><td class="num mono">+919 (pays exactly this)</td><td class="num">$102</td><td class="num">14 in 100</td><td class="num">10 in 100</td><td><span class="pill ok">In your favor</span></td></tr>
+<tr><td>4</td><td class="small">CLE Browns @ JAX Jaguars<br>NO Saints @ DET Lions</td><td><b>Jakobi Meyers (JAX)</b> 5+ receptions; <b>Amon-Ra St. Brown (DET)</b> 9+ receptions; <b>Jameson Williams (DET)</b> 6+ receptions</td><td class="num mono">+3865 product (site shows less)</td><td class="num">$397</td><td class="num">5 in 100</td><td class="num">3 in 100</td><td><span class="pill warn">Lottery ticket</span></td></tr>
 </tbody></table></div>
-<p class="small">"Model: hits" is how often the model expects every leg in the slip to hit. "Price needs" is the hit rate the odds require to break even. Slips 2 and 4 contain a same-game pair; DraftKings reprices those for correlation, so the displayed price will be lower than the product shown.</p>
-
-<h2>Pick 1: Jakobi Meyers (JAX) 5+ receptions at +177</h2>
-<div class="card">
-<div class="grid">
-<div class="stat"><div class="k">Model</div><div class="v">45 in 100</div><div class="d">price needs 36</div></div>
-<div class="stat"><div class="k">Last season at this rung</div><div class="v">7 of 16</div><div class="d">games with 5+ catches</div></div>
-<div class="stat"><div class="k">Route share in Jacksonville</div><div class="v">90%</div><div class="d">6.8 targets a game</div></div>
-<div class="stat"><div class="k">Sleeper status</div><div class="v">Questionable</div><div class="d">hand; practicing, coach says "all good"</div></div>
-</div>
-<div class="why"><b>Why.</b> A full-time starter DraftKings prices as a fourth option. Since the trade to Jacksonville he has run nine of every ten routes and caught five or more in seven of sixteen games last season across both teams. In Las Vegas the year before he was the WR1 at 8.6 targets a game.</div>
-<div class="scroll"><table>
-<thead><tr><th>Check</th><th>What we found</th><th>Effect</th></tr></thead>
-<tbody>
+<p class="small">"Model: hits" is how often the model expects every leg in the slip to hit. "Price needs" is the hit rate the odds require to break even. Same-game pairs are repriced by DraftKings for correlation, so the displayed price will be lower than the product shown.</p>
+<h2>Games, in DraftKings order</h2>
+<div class="toc"><a href="#2026_01_NE_SEA" class="">1. NE Patriots @ SEA Seahawks</a><a href="#2026_01_SF_LA" class="">2. SF 49ers @ LA Rams</a><a href="#2026_01_NO_DET" class="haspick">3. NO Saints @ DET Lions</a><a href="#2026_01_CHI_CAR" class="">4. CHI Bears @ CAR Panthers</a><a href="#2026_01_BAL_IND" class="">5. BAL Ravens @ IND Colts</a><a href="#2026_01_ATL_PIT" class="">6. ATL Falcons @ PIT Steelers</a><a href="#2026_01_CLE_JAX" class="haspick">7. CLE Browns @ JAX Jaguars</a><a href="#2026_01_TB_CIN" class="">8. TB Buccaneers @ CIN Bengals</a><a href="#2026_01_BUF_HOU" class="">9. BUF Bills @ HOU Texans</a><a href="#2026_01_NYJ_TEN" class="">10. NY Jets @ TEN Titans</a><a href="#2026_01_WAS_PHI" class="">11. WAS Commanders @ PHI Eagles</a><a href="#2026_01_ARI_LAC" class="">12. ARI Cardinals @ LA Chargers</a><a href="#2026_01_MIA_LV" class="">13. MIA Dolphins @ LV Raiders</a><a href="#2026_01_GB_MIN" class="">14. GB Packers @ MIN Vikings</a><a href="#2026_01_DAL_NYG" class="">15. DAL Cowboys @ NY Giants</a><a href="#2026_01_DEN_KC" class="">16. DEN Broncos @ KC Chiefs</a></div>
+<section class="game " id="2026_01_NE_SEA">
+<div class="ghead"><h3>1. NE Patriots @ SEA Seahawks</h3><div class="links">Verify on DraftKings: <a href="https://sportsbook.draftkings.com/leagues/football/nfl?category=games&subcategory=receiving&nav_1=receiving-yards" target="_blank" rel="noopener">receiving yards</a><a href="https://sportsbook.draftkings.com/leagues/football/nfl?category=games&subcategory=receiving&nav_1=receptions" target="_blank" rel="noopener">receptions</a></div></div>
+<div class="gmeta"><b>Wed Sep 9, 8:20 pm ET (5:20 pm PT)</b> &middot; Lumen Field, outdoors &middot; total <b>44.5</b> &middot; SEA favored by 3.5 &middot; weather: Sunny, 73 F, wind 6 mph, rain 4% (weather.gov)</div>
+<div class="scroll"><table><thead><tr><th>Receiver</th><th>Team</th><th class="num">DK median yards</th><th class="num">Model median yards</th><th class="num">DK median catches</th><th class="num">Model median catches</th><th>Model vs book</th><th>Notes</th></tr></thead><tbody>
+<tr class=""><td>Jaxon Smith-Njigba</td><td>SEA</td><td class="num">87</td><td class="num">84</td><td class="num">7.2</td><td class="num">7</td><td><span class="pill warn">about the same</span></td><td class="small">-</td></tr>
+<tr class=""><td>A.J. Brown</td><td>NE</td><td class="num">64</td><td class="num">68</td><td class="num">5.6</td><td class="num">5</td><td><span class="pill ok">model higher</span> <span class=small>(receptions 6+ at +135: model 48%, book 43%)</span></td><td class="small">new team; old-team role in the model</td></tr>
+<tr class=""><td>Romeo Doubs</td><td>NE</td><td class="num">38</td><td class="num">37</td><td class="num">3.9</td><td class="num">3</td><td><span class="pill warn">about the same</span></td><td class="small">new team; old-team role in the model</td></tr>
+<tr class=""><td>Cooper Kupp</td><td>SEA</td><td class="num">34</td><td class="num">29</td><td class="num">3.5</td><td class="num">3</td><td><span class="pill bad">model lower</span> <span class=small>(receptions 4+ at +160: model 31%, book 38%)</span></td><td class="small">-</td></tr>
+<tr class=""><td>Rashid Shaheed</td><td>SEA</td><td class="num">33</td><td class="num">21</td><td class="num">2.9</td><td class="num">2</td><td><span class="pill bad">model lower</span> <span class=small>(receptions 2+ at -235: model 60%, book 70%)</span></td><td class="small">-</td></tr>
+<tr class=""><td>Demario Douglas</td><td>NE</td><td class="num">21</td><td class="num">17</td><td class="num">2.5</td><td class="num">1</td><td><span class="pill bad">model lower</span> <span class=small>(receiving 25+ at +133: model 37%, book 43%)</span></td><td class="small">-</td></tr>
+</tbody></table></div>
+<p class="small">Not modelled (tight ends, backs, rookies without a history): A.J. Barner, Hunter Henry, Rhamondre Stevenson, TreVeyon Henderson.</p>
+</section>
+<section class="game " id="2026_01_SF_LA">
+<div class="ghead"><h3>2. SF 49ers @ LA Rams</h3><div class="links">Verify on DraftKings: <a href="https://sportsbook.draftkings.com/leagues/football/nfl?category=games&subcategory=receiving&nav_1=receiving-yards" target="_blank" rel="noopener">receiving yards</a><a href="https://sportsbook.draftkings.com/leagues/football/nfl?category=games&subcategory=receiving&nav_1=receptions" target="_blank" rel="noopener">receptions</a></div></div>
+<div class="gmeta"><b>Thu Sep 10, 8:35 pm ET (5:35 pm PT)</b> &middot; Melbourne Cricket Ground (neutral site), dome &middot; total <b>48.5</b> &middot; LA favored by 3.5 &middot; weather: indoors</div>
+<div class="scroll"><table><thead><tr><th>Receiver</th><th>Team</th><th class="num">DK median yards</th><th class="num">Model median yards</th><th class="num">DK median catches</th><th class="num">Model median catches</th><th>Model vs book</th><th>Notes</th></tr></thead><tbody>
+<tr class=""><td>Puka Nacua</td><td>LA</td><td class="num">95</td><td class="num">96</td><td class="num">7.8</td><td class="num">7</td><td><span class="pill warn">about the same</span></td><td class="small">-</td></tr>
+<tr class=""><td>Davante Adams</td><td>LA</td><td class="num">55</td><td class="num">57</td><td class="num">5.1</td><td class="num">4</td><td><span class="pill warn">about the same</span></td><td class="small">-</td></tr>
+<tr class=""><td>Mike Evans</td><td>SF</td><td class="num">54</td><td class="num">46</td><td class="num">4.5</td><td class="num">4</td><td><span class="pill warn">about the same</span></td><td class="small">new team; old-team role in the model</td></tr>
+<tr class=""><td>Deebo Samuel</td><td>SF</td><td class="num">32</td><td class="num">43</td><td class="num">3.6</td><td class="num">4</td><td><span class="pill ok">model higher</span> <span class=small>(receiving 40+ at +164: model 52%, book 38%)</span></td><td class="small">new team; old-team role in the model</td></tr>
+</tbody></table></div>
+<p class="small">Not modelled (tight ends, backs, rookies without a history): Christian McCaffrey, Colby Parkinson, De&#x27;Zhaun Stribling, Kyren Williams, Terrance Ferguson.</p>
+</section>
+<section class="game haspick" id="2026_01_NO_DET">
+<div class="ghead"><h3>3. NO Saints @ DET Lions</h3><div class="links">Verify on DraftKings: <a href="https://sportsbook.draftkings.com/leagues/football/nfl?category=games&subcategory=receiving&nav_1=receiving-yards" target="_blank" rel="noopener">receiving yards</a><a href="https://sportsbook.draftkings.com/leagues/football/nfl?category=games&subcategory=receiving&nav_1=receptions" target="_blank" rel="noopener">receptions</a></div></div>
+<div class="gmeta"><b>Sun Sep 13, 1:00 pm ET (10:00 am PT)</b> &middot; Ford Field, dome &middot; total <b>49.5</b> &middot; DET favored by 7 &middot; weather: indoors</div>
+<div class="why"><b>Pick: Amon-Ra St. Brown (DET) 9+ receptions at +268.</b> Detroit&#x27;s WR1 by a mile and a volume catcher: 10.1 targets a game, half of the Lions&#x27; receiver targets, nine or more catches in six of seventeen games last year. Paired with Jameson Williams on purpose: when Detroit throws, both eat, and they cleared both numbers in the same game three times in seventeen, more often than if they were unrelated.</div>
+<div class="scroll"><table><thead><tr><th>Check</th><th>What we found</th><th>Effect</th></tr></thead><tbody>
+<tr><td>Coordinator</td><td>New OC Drew Petzing; his Arizona offense threw 44 times a game, more than Detroit&#x27;s 36.7</td><td><span class="pill ok">Volume not the risk</span></td></tr>
+<tr><td>Opponent</td><td>The Saints&#x27; fourth-ranked pass defense is teams running on them; by yards per target to receivers they were average</td><td><span class="pill ok">Neutral</span></td></tr>
+<tr><td>Weather</td><td>Ford Field, indoors</td><td><span class="pill ok">None</span></td></tr>
+<tr><td>Health</td><td>Both healthy on Sleeper</td><td><span class="pill ok">Cleared</span></td></tr>
+<tr><td>Same-game price</td><td>DraftKings reprices correlated legs; the one charge measured so far was 2% on a looser four-leg slip; expect more here</td><td><span class="pill warn">Compare the displayed price to +1332</span></td></tr>
+</tbody></table></div>
+<div class="why"><b>Pick: Jameson Williams (DET) 6+ receptions at +289.</b> On the field for 96% of Detroit&#x27;s pass plays and the clear WR2 at six targets a game, with six or more catches in six of seventeen games last year. ESPN&#x27;s Dan Graziano expects him to take the bigger leap under the new coordinator.</div>
+<div class="scroll"><table><thead><tr><th>Receiver</th><th>Team</th><th class="num">DK median yards</th><th class="num">Model median yards</th><th class="num">DK median catches</th><th class="num">Model median catches</th><th>Model vs book</th><th>Notes</th></tr></thead><tbody>
+<tr class="pick"><td>Amon-Ra St. Brown</td><td>DET</td><td class="num">81</td><td class="num">80</td><td class="num">7.2</td><td class="num">7</td><td><span class="pill warn">about the same</span></td><td class="small">-</td></tr>
+<tr class=""><td>Chris Olave</td><td>NO</td><td class="num">76</td><td class="num">68</td><td class="num">6.9</td><td class="num">5</td><td><span class="pill warn">about the same</span></td><td class="small">44% of history with a top target out</td></tr>
+<tr class="pick"><td>Jameson Williams</td><td>DET</td><td class="num">60</td><td class="num">59</td><td class="num">4.6</td><td class="num">4</td><td><span class="pill warn">about the same</span></td><td class="small">-</td></tr>
+</tbody></table></div>
+<p class="small">Not modelled (tight ends, backs, rookies without a history): Jahmyr Gibbs, Juwan Johnson, Sam LaPorta.</p>
+</section>
+<section class="game " id="2026_01_CHI_CAR">
+<div class="ghead"><h3>4. CHI Bears @ CAR Panthers</h3><div class="links">Verify on DraftKings: <a href="https://sportsbook.draftkings.com/leagues/football/nfl?category=games&subcategory=receiving&nav_1=receiving-yards" target="_blank" rel="noopener">receiving yards</a><a href="https://sportsbook.draftkings.com/leagues/football/nfl?category=games&subcategory=receiving&nav_1=receptions" target="_blank" rel="noopener">receptions</a></div></div>
+<div class="gmeta"><b>Sun Sep 13, 1:00 pm ET (10:00 am PT)</b> &middot; Bank of America Stadium, outdoors &middot; total <b>47.5</b> &middot; CHI favored by 2.5 &middot; weather: kickoff beyond the forecast horizon; dry assumed</div>
+<div class="scroll"><table><thead><tr><th>Receiver</th><th>Team</th><th class="num">DK median yards</th><th class="num">Model median yards</th><th class="num">DK median catches</th><th class="num">Model median catches</th><th>Model vs book</th><th>Notes</th></tr></thead><tbody>
+<tr class=""><td>Rome Odunze</td><td>CHI</td><td class="num">49</td><td class="num">42</td><td class="num">4.0</td><td class="num">3</td><td><span class="pill warn">about the same</span></td><td class="small">-</td></tr>
+<tr class=""><td>Tetairoa McMillan</td><td>CAR</td><td class="num">65</td><td class="num">50</td><td class="num">5.4</td><td class="num">4</td><td><span class="pill bad">model lower</span> <span class=small>(receiving 80+ at +179: model 26%, book 36%)</span></td><td class="small">-</td></tr>
+<tr class=""><td>Jalen Coker</td><td>CAR</td><td class="num">42</td><td class="num">35</td><td class="num">4.2</td><td class="num">3</td><td><span class="pill bad">model lower</span> <span class=small>(receiving 50+ at +151: model 34%, book 40%)</span></td><td class="small">-</td></tr>
+<tr class=""><td>Luther Burden III</td><td>CHI</td><td class="num">55</td><td class="num">33</td><td class="num">4.9</td><td class="num">3</td><td><span class="pill bad">model lower</span> <span class=small>(receiving 60+ at +123: model 22%, book 45%)</span></td><td class="small">35% of history with a top target out</td></tr>
+</tbody></table></div>
+<p class="small">Not modelled (tight ends, backs, rookies without a history): Colston Loveland.</p>
+</section>
+<section class="game " id="2026_01_BAL_IND">
+<div class="ghead"><h3>5. BAL Ravens @ IND Colts</h3><div class="links">Verify on DraftKings: <a href="https://sportsbook.draftkings.com/leagues/football/nfl?category=games&subcategory=receiving&nav_1=receiving-yards" target="_blank" rel="noopener">receiving yards</a><a href="https://sportsbook.draftkings.com/leagues/football/nfl?category=games&subcategory=receiving&nav_1=receptions" target="_blank" rel="noopener">receptions</a></div></div>
+<div class="gmeta"><b>Sun Sep 13, 1:00 pm ET (10:00 am PT)</b> &middot; Lucas Oil Stadium, roof n/a &middot; total <b>48.5</b> &middot; BAL favored by 3.5 &middot; weather: indoors</div>
+<div class="scroll"><table><thead><tr><th>Receiver</th><th>Team</th><th class="num">DK median yards</th><th class="num">Model median yards</th><th class="num">DK median catches</th><th class="num">Model median catches</th><th>Model vs book</th><th>Notes</th></tr></thead><tbody>
+<tr class=""><td>Zay Flowers</td><td>BAL</td><td class="num">67</td><td class="num">71</td><td class="num">5.4</td><td class="num">5</td><td><span class="pill ok">model higher</span> <span class=small>(receiving 80+ at +167: model 43%, book 38%)</span></td><td class="small">-</td></tr>
+</tbody></table></div>
+<p class="small">Not modelled (tight ends, backs, rookies without a history): Mark Andrews.</p>
+</section>
+<section class="game " id="2026_01_ATL_PIT">
+<div class="ghead"><h3>6. ATL Falcons @ PIT Steelers</h3><div class="links">Verify on DraftKings: <a href="https://sportsbook.draftkings.com/leagues/football/nfl?category=games&subcategory=receiving&nav_1=receiving-yards" target="_blank" rel="noopener">receiving yards</a><a href="https://sportsbook.draftkings.com/leagues/football/nfl?category=games&subcategory=receiving&nav_1=receptions" target="_blank" rel="noopener">receptions</a></div></div>
+<div class="gmeta"><b>Sun Sep 13, 1:00 pm ET (10:00 am PT)</b> &middot; Acrisure Stadium, outdoors &middot; total <b>42.5</b> &middot; PIT favored by 3.5 &middot; weather: kickoff beyond the forecast horizon; dry assumed</div>
+<div class="scroll"><table><thead><tr><th>Receiver</th><th>Team</th><th class="num">DK median yards</th><th class="num">Model median yards</th><th class="num">DK median catches</th><th class="num">Model median catches</th><th>Model vs book</th><th>Notes</th></tr></thead><tbody>
+<tr class=""><td>Drake London</td><td>ATL</td><td class="num">64</td><td class="num">60</td><td class="num">6.1</td><td class="num">5</td><td><span class="pill warn">about the same</span></td><td class="small">new QB expected</td></tr>
+<tr class=""><td>DK Metcalf</td><td>PIT</td><td class="num">50</td><td class="num">53</td><td class="num">4.5</td><td class="num">4</td><td><span class="pill ok">model higher</span> <span class=small>(receiving 60+ at +159: model 44%, book 39%)</span></td><td class="small">-</td></tr>
+<tr class=""><td>Michael Pittman Jr.</td><td>PIT</td><td class="num">48</td><td class="num">37</td><td class="num">5.1</td><td class="num">4</td><td><span class="pill bad">model lower</span> <span class=small>(receiving 60+ at +180: model 26%, book 36%)</span></td><td class="small">new team; old-team role in the model</td></tr>
+</tbody></table></div>
+<p class="small">Not modelled (tight ends, backs, rookies without a history): Bijan Robinson, Kyle Pitts Sr..</p>
+</section>
+<section class="game haspick" id="2026_01_CLE_JAX">
+<div class="ghead"><h3>7. CLE Browns @ JAX Jaguars</h3><div class="links">Verify on DraftKings: <a href="https://sportsbook.draftkings.com/leagues/football/nfl?category=games&subcategory=receiving&nav_1=receiving-yards" target="_blank" rel="noopener">receiving yards</a><a href="https://sportsbook.draftkings.com/leagues/football/nfl?category=games&subcategory=receiving&nav_1=receptions" target="_blank" rel="noopener">receptions</a></div></div>
+<div class="gmeta"><b>Sun Sep 13, 1:00 pm ET (10:00 am PT)</b> &middot; EverBank Stadium, outdoors &middot; total <b>40.5</b> &middot; JAX favored by 7.5 &middot; weather: kickoff beyond the forecast horizon; dry assumed</div>
+<div class="why"><b>Pick: Jakobi Meyers (JAX) 5+ receptions at +177.</b> A full-time starter DraftKings prices as a fourth option. Since the trade to Jacksonville he has run nine of every ten routes and caught five or more in seven of sixteen games last season across both teams. In Las Vegas the year before he was the WR1 at 8.6 targets a game.</div>
+<div class="scroll"><table><thead><tr><th>Check</th><th>What we found</th><th>Effect</th></tr></thead><tbody>
 <tr><td>Teammate absence</td><td>Four of his five 5-catch Jacksonville games came with Brian Thomas Jr. on the field</td><td><span class="pill ok">Holds</span></td></tr>
-<tr><td>Injury</td><td>Jammed his right hand Aug 19; back at practice; coach Liam Coen: "all good"</td><td><span class="pill ok">Cleared</span></td></tr>
+<tr><td>Injury</td><td>Jammed his right hand Aug 19; back at practice; coach Liam Coen: &quot;all good&quot;</td><td><span class="pill ok">Cleared</span></td></tr>
 <tr><td>Quarterback</td><td>Same passer as last season</td><td><span class="pill ok">No change</span></td></tr>
 <tr><td>Game script</td><td>Jacksonville is a 7.5-point home favorite in the lowest total on the slate (40.5): fewer throws</td><td><span class="pill bad">Real risk</span></td></tr>
 <tr><td>Opponent</td><td>Cleveland was eighth-best against receivers last year; that ranking barely carries year to year</td><td><span class="pill warn">Mild minus</span></td></tr>
 <tr><td>Weather</td><td>101 to 103 F, sunny, calm. No heat effect measured through 92 F; 100 F+ has never happened in six seasons of data</td><td><span class="pill warn">Unknown, not neutral</span></td></tr>
-<tr><td>Sleeper's 2026 projection</td><td>3.8 catches a game in a three-receiver rotation</td><td><span class="pill warn">Below this rung</span></td></tr>
+<tr><td>Sleeper&#x27;s 2026 projection</td><td>3.8 catches a game in a three-receiver rotation</td><td><span class="pill warn">Below this rung</span></td></tr>
 </tbody></table></div>
-</div>
-
-<h2>Pick 2: the Detroit pair, same game</h2>
-<div class="card">
-<p class="big">Amon-Ra St. Brown (DET) 9+ receptions at +268 &nbsp;+&nbsp; Jameson Williams (DET) 6+ receptions at +289</p>
-<div class="why"><b>Why.</b> Detroit's two full-time receivers, paired on purpose: when Detroit throws, both eat. They cleared both numbers in the same game three times in seventeen last year, more often than if they were unrelated. Together the model has them at 11 in 100; the product price needs 7.</div>
-<div class="scroll"><table>
-<thead><tr><th>Player</th><th>Role last season</th><th>At this rung</th><th>Sleeper</th></tr></thead>
-<tbody>
-<tr><td><b>Amon-Ra St. Brown (DET)</b></td><td>10.1 targets a game, 51% of the team's receiver targets, 91% route share</td><td>9+ catches in 6 of 17 games</td><td>Healthy, WR1</td></tr>
-<tr><td><b>Jameson Williams (DET)</b></td><td>6.0 targets a game, 96% route share</td><td>6+ catches in 6 of 17 games</td><td>Healthy, WR2</td></tr>
+<div class="scroll"><table><thead><tr><th>Receiver</th><th>Team</th><th class="num">DK median yards</th><th class="num">Model median yards</th><th class="num">DK median catches</th><th class="num">Model median catches</th><th>Model vs book</th><th>Notes</th></tr></thead><tbody>
+<tr class="pick"><td>Jakobi Meyers</td><td>JAX</td><td class="num">40</td><td class="num">45</td><td class="num">4.3</td><td class="num">4</td><td><span class="pill ok">model higher</span> <span class=small>(receptions 5+ at +177: model 45%, book 36%)</span></td><td class="small">-</td></tr>
+<tr class=""><td>Parker Washington</td><td>JAX</td><td class="num">56</td><td class="num">55</td><td class="num">4.7</td><td class="num">4</td><td><span class="pill warn">about the same</span></td><td class="small">-</td></tr>
+<tr class=""><td>Jerry Jeudy</td><td>CLE</td><td class="num">34</td><td class="num">35</td><td class="num">3.6</td><td class="num">3</td><td><span class="pill warn">about the same</span></td><td class="small">new QB expected</td></tr>
+<tr class=""><td>Brian Thomas Jr.</td><td>JAX</td><td class="num">40</td><td class="num">38</td><td class="num">3.6</td><td class="num">3</td><td><span class="pill warn">about the same</span></td><td class="small">-</td></tr>
 </tbody></table></div>
-<div class="scroll"><table>
-<thead><tr><th>Check</th><th>What we found</th><th>Effect</th></tr></thead>
-<tbody>
-<tr><td>Coordinator</td><td>New OC Drew Petzing; his Arizona offense threw 44 times a game, more than Detroit's 36.7</td><td><span class="pill ok">Volume not the risk</span></td></tr>
-<tr><td>Opponent</td><td>The Saints' "fourth-ranked pass defense" is teams running on them; by yards per target to receivers they were average</td><td><span class="pill ok">Neutral</span></td></tr>
-<tr><td>Weather</td><td>Ford Field, indoors</td><td><span class="pill ok">None</span></td></tr>
-<tr><td>Same-game price</td><td>The book reprices correlated legs. The one charge measured so far was 2% on a looser four-leg slip; expect more here</td><td><span class="pill warn">Compare the displayed price to +1332</span></td></tr>
+<p class="small">Not modelled (tight ends, backs, rookies without a history): Brenton Strange, Denzel Boston, Harold Fannin Jr., KC Concepcion.</p>
+</section>
+<section class="game " id="2026_01_TB_CIN">
+<div class="ghead"><h3>8. TB Buccaneers @ CIN Bengals</h3><div class="links">Verify on DraftKings: <a href="https://sportsbook.draftkings.com/leagues/football/nfl?category=games&subcategory=receiving&nav_1=receiving-yards" target="_blank" rel="noopener">receiving yards</a><a href="https://sportsbook.draftkings.com/leagues/football/nfl?category=games&subcategory=receiving&nav_1=receptions" target="_blank" rel="noopener">receptions</a></div></div>
+<div class="gmeta"><b>Sun Sep 13, 1:00 pm ET (10:00 am PT)</b> &middot; Paycor Stadium, outdoors &middot; total <b>51.5</b> &middot; CIN favored by 3.5 &middot; weather: kickoff beyond the forecast horizon; dry assumed</div>
+<div class="scroll"><table><thead><tr><th>Receiver</th><th>Team</th><th class="num">DK median yards</th><th class="num">Model median yards</th><th class="num">DK median catches</th><th class="num">Model median catches</th><th>Model vs book</th><th>Notes</th></tr></thead><tbody>
+<tr class=""><td>Ja&#x27;Marr Chase</td><td>CIN</td><td class="num">95</td><td class="num">75</td><td class="num">8.1</td><td class="num">7</td><td><span class="pill bad">model lower</span> <span class=small>(receptions 9+ at +170: model 30%, book 37%)</span></td><td class="small">-</td></tr>
+<tr class=""><td>Tee Higgins</td><td>CIN</td><td class="num">70</td><td class="num">56</td><td class="num">5.7</td><td class="num">4</td><td><span class="pill bad">model lower</span> <span class=small>(receiving 80+ at +142: model 30%, book 41%)</span></td><td class="small">-</td></tr>
+<tr class=""><td>Emeka Egbuka</td><td>TB</td><td class="num">58</td><td class="num">34</td><td class="num">4.8</td><td class="num">3</td><td><span class="pill bad">model lower</span> <span class=small>(receiving 70+ at +168: model 16%, book 37%)</span></td><td class="small">-</td></tr>
 </tbody></table></div>
-</div>
-
-<h2>Not picks, and why</h2>
-<div class="scroll"><table>
-<thead><tr><th>Leg</th><th class="num">DraftKings</th><th class="num">Model vs price</th><th>Reason it is out</th></tr></thead>
-<tbody>
-<tr><td><b>Drake London (ATL)</b> 80+ yards</td><td class="num mono">+203</td><td class="num">34 vs 33</td><td>The edge vanished once his history with Penix was weighted for Tua Tagovailoa as the likely starter. Drizzle forecast in Pittsburgh. Fair price, not a bet.</td></tr>
-<tr><td><b>Malik Nabers (NYG)</b> 90+ yards</td><td class="num mono">+294</td><td class="num">23 vs 25</td><td>Negative after the quarterback weighting. Coming back from an ACL, Sleeper Questionable, and Dallas rebuilt its entire secondary.</td></tr>
-<tr><td><b>Zay Flowers (BAL)</b> 80+ yards</td><td class="num mono">+167</td><td class="num">44 vs 38</td><td>Cleared to play. Reached 80 yards in only 4 of 17 games last year, under what the book already pays. The model's tail, not the record.</td></tr>
-<tr><td><b>DK Metcalf (PIT)</b> 60+ yards</td><td class="num mono">+159</td><td class="num">43 vs 39</td><td>Says he is 100%. Reached 60 yards in 4 of 15 games last year. Same objection.</td></tr>
-<tr><td><b>Michael Wilson (ARI)</b> 50+ yards</td><td class="num mono">+127</td><td class="num">53 vs 44</td><td>A fifth of his history is games Harrison missed. Brissett is the confirmed starter and Harrison is expected to be featured. The book prices the WR2 he is when Harrison plays.</td></tr>
-<tr><td><b>Puka Nacua (LA)</b> 110+ yards</td><td class="num mono">+171</td><td class="num">40 vs 37</td><td>No real edge, a possible Week 1 suspension, and a neutral-site game in Melbourne.</td></tr>
+<p class="small">Not modelled (tight ends, backs, rookies without a history): Bucky Irving, Chase Brown.</p>
+</section>
+<section class="game " id="2026_01_BUF_HOU">
+<div class="ghead"><h3>9. BUF Bills @ HOU Texans</h3><div class="links">Verify on DraftKings: <a href="https://sportsbook.draftkings.com/leagues/football/nfl?category=games&subcategory=receiving&nav_1=receiving-yards" target="_blank" rel="noopener">receiving yards</a><a href="https://sportsbook.draftkings.com/leagues/football/nfl?category=games&subcategory=receiving&nav_1=receptions" target="_blank" rel="noopener">receptions</a></div></div>
+<div class="gmeta"><b>Sun Sep 13, 1:00 pm ET (10:00 am PT)</b> &middot; Reliant Stadium, roof n/a &middot; total <b>44.5</b> &middot; BUF favored by 1.5 &middot; weather: indoors</div>
+<div class="scroll"><table><thead><tr><th>Receiver</th><th>Team</th><th class="num">DK median yards</th><th class="num">Model median yards</th><th class="num">DK median catches</th><th class="num">Model median catches</th><th>Model vs book</th><th>Notes</th></tr></thead><tbody>
+<tr class=""><td>Nico Collins</td><td>HOU</td><td class="num">72</td><td class="num">60</td><td class="num">5.9</td><td class="num">4</td><td><span class="pill bad">model lower</span> <span class=small>(receiving 80+ at +136: model 34%, book 42%)</span></td><td class="small">-</td></tr>
+<tr class=""><td>Khalil Shakir</td><td>BUF</td><td class="num">41</td><td class="num">36</td><td class="num">4.6</td><td class="num">4</td><td><span class="pill warn">about the same</span></td><td class="small">-</td></tr>
+<tr class=""><td>D.J. Moore</td><td>BUF</td><td class="num">49</td><td class="num">33</td><td class="num">4.2</td><td class="num">3</td><td><span class="pill bad">model lower</span> <span class=small>(receiving 60+ at +166: model 22%, book 38%)</span></td><td class="small">new team; old-team role in the model; 35% of history with a top target out</td></tr>
 </tbody></table></div>
-
-<h2>Weather at kickoff</h2>
-<div class="scroll"><table>
-<thead><tr><th>Game</th><th>Kickoff</th><th>Forecast</th><th>Measured effect</th><th>For the pick</th></tr></thead>
-<tbody>
-<tr><td>CLE at JAX (Meyers)</td><td>Sun 1:00 pm, outdoors</td><td>101 to 103 F, sunny, calm</td><td>None through 92 F; 100 F+ unobserved in six seasons</td><td><span class="pill warn">Unknown</span></td></tr>
-<tr><td>NO at DET (St. Brown, Williams)</td><td>Sun 1:00 pm, dome</td><td>Indoors</td><td>None</td><td><span class="pill ok">Neutral</span></td></tr>
-<tr><td>ATL at PIT (London)</td><td>Sun 1:00 pm, outdoors</td><td>77 to 80 F, light drizzle</td><td>Rain costs a receiver about 6 yards a game</td><td><span class="pill bad">Minus</span></td></tr>
-<tr><td>DAL at NYG (Nabers)</td><td>Sun 8:20 pm, outdoors</td><td>68 F, overcast, wind 8</td><td>None</td><td><span class="pill ok">Neutral</span></td></tr>
+<p class="small">Not modelled (tight ends, backs, rookies without a history): Dalton Kincaid, Dalton Schultz.</p>
+</section>
+<section class="game " id="2026_01_NYJ_TEN">
+<div class="ghead"><h3>10. NY Jets @ TEN Titans</h3><div class="links">Verify on DraftKings: <a href="https://sportsbook.draftkings.com/leagues/football/nfl?category=games&subcategory=receiving&nav_1=receiving-yards" target="_blank" rel="noopener">receiving yards</a><a href="https://sportsbook.draftkings.com/leagues/football/nfl?category=games&subcategory=receiving&nav_1=receptions" target="_blank" rel="noopener">receptions</a></div></div>
+<div class="gmeta"><b>Sun Sep 13, 1:00 pm ET (10:00 am PT)</b> &middot; Nissan Stadium, outdoors &middot; total <b>38.5</b> &middot; TEN favored by 1.5 &middot; weather: kickoff beyond the forecast horizon; dry assumed</div>
+<div class="scroll"><table><thead><tr><th>Receiver</th><th>Team</th><th class="num">DK median yards</th><th class="num">Model median yards</th><th class="num">DK median catches</th><th class="num">Model median catches</th><th>Model vs book</th><th>Notes</th></tr></thead><tbody>
+<tr class=""><td>Wan&#x27;Dale Robinson</td><td>TEN</td><td class="num">45</td><td class="num">54</td><td class="num">5.1</td><td class="num">5</td><td><span class="pill ok">model higher</span> <span class=small>(receiving 50+ at +132: model 54%, book 43%)</span></td><td class="small">new team; old-team role in the model; 66% of history with a top target out</td></tr>
+<tr class=""><td>Garrett Wilson</td><td>NYJ</td><td class="num">65</td><td class="num">45</td><td class="num">6.2</td><td class="num">4</td><td><span class="pill bad">model lower</span> <span class=small>(receiving 70+ at +127: model 26%, book 44%)</span></td><td class="small">new QB expected</td></tr>
 </tbody></table></div>
-<p class="small">Open-Meteo, eleven days out. The weather.gov hourly forecast the model uses reaches these games around Sept 7.</p>
-
+<p class="small">Not modelled (tight ends, backs, rookies without a history): Breece Hall, Carnell Tate.</p>
+</section>
+<section class="game " id="2026_01_WAS_PHI">
+<div class="ghead"><h3>11. WAS Commanders @ PHI Eagles</h3><div class="links">Verify on DraftKings: <a href="https://sportsbook.draftkings.com/leagues/football/nfl?category=games&subcategory=receiving&nav_1=receiving-yards" target="_blank" rel="noopener">receiving yards</a><a href="https://sportsbook.draftkings.com/leagues/football/nfl?category=games&subcategory=receiving&nav_1=receptions" target="_blank" rel="noopener">receptions</a></div></div>
+<div class="gmeta"><b>Sun Sep 13, 4:25 pm ET (1:25 pm PT)</b> &middot; Lincoln Financial Field, outdoors &middot; total <b>45.5</b> &middot; PHI favored by 5.5 &middot; weather: kickoff beyond the forecast horizon; dry assumed</div>
+<div class="scroll"><table><thead><tr><th>Receiver</th><th>Team</th><th class="num">DK median yards</th><th class="num">Model median yards</th><th class="num">DK median catches</th><th class="num">Model median catches</th><th>Model vs book</th><th>Notes</th></tr></thead><tbody>
+<tr class=""><td>DeVonta Smith</td><td>PHI</td><td class="num">70</td><td class="num">50</td><td class="num">6.0</td><td class="num">4</td><td><span class="pill bad">model lower</span> <span class=small>(receiving 80+ at +143: model 24%, book 41%)</span></td><td class="small">-</td></tr>
+<tr class=""><td>Terry McLaurin</td><td>WAS</td><td class="num">53</td><td class="num">46</td><td class="num">4.6</td><td class="num">3</td><td><span class="pill bad">model lower</span> <span class=small>(receiving 60+ at +135: model 36%, book 43%)</span></td><td class="small">new QB expected</td></tr>
+<tr class=""><td>Stefon Diggs</td><td>WAS</td><td class="num">44</td><td class="num">43</td><td class="num">4.4</td><td class="num">4</td><td><span class="pill warn">about the same</span></td><td class="small">new team; old-team role in the model; new QB expected</td></tr>
+</tbody></table></div>
+<p class="small">Not modelled (tight ends, backs, rookies without a history): Dallas Goedert, Saquon Barkley.</p>
+</section>
+<section class="game " id="2026_01_ARI_LAC">
+<div class="ghead"><h3>12. ARI Cardinals @ LA Chargers</h3><div class="links">Verify on DraftKings: <a href="https://sportsbook.draftkings.com/leagues/football/nfl?category=games&subcategory=receiving&nav_1=receiving-yards" target="_blank" rel="noopener">receiving yards</a><a href="https://sportsbook.draftkings.com/leagues/football/nfl?category=games&subcategory=receiving&nav_1=receptions" target="_blank" rel="noopener">receptions</a></div></div>
+<div class="gmeta"><b>Sun Sep 13, 4:25 pm ET (1:25 pm PT)</b> &middot; SoFi Stadium, dome &middot; total <b>46.5</b> &middot; LAC favored by 10.5 &middot; weather: indoors</div>
+<div class="scroll"><table><thead><tr><th>Receiver</th><th>Team</th><th class="num">DK median yards</th><th class="num">Model median yards</th><th class="num">DK median catches</th><th class="num">Model median catches</th><th>Model vs book</th><th>Notes</th></tr></thead><tbody>
+<tr class=""><td>Michael Wilson</td><td>ARI</td><td class="num">45</td><td class="num">53</td><td class="num">4.4</td><td class="num">4</td><td><span class="pill ok">model higher</span> <span class=small>(receiving 50+ at +127: model 52%, book 44%)</span></td><td class="small">-</td></tr>
+<tr class=""><td>Quentin Johnston</td><td>LAC</td><td class="num">45</td><td class="num">47</td><td class="num">3.9</td><td class="num">3</td><td><span class="pill warn">about the same</span></td><td class="small">-</td></tr>
+<tr class=""><td>Ladd McConkey</td><td>LAC</td><td class="num">58</td><td class="num">39</td><td class="num">5.1</td><td class="num">3</td><td><span class="pill bad">model lower</span> <span class=small>(receiving 70+ at +173: model 20%, book 37%)</span></td><td class="small">-</td></tr>
+<tr class=""><td>Marvin Harrison Jr.</td><td>ARI</td><td class="num">52</td><td class="num">36</td><td class="num">4.8</td><td class="num">3</td><td><span class="pill bad">model lower</span> <span class=small>(receiving 60+ at +149: model 26%, book 40%)</span></td><td class="small">-</td></tr>
+<tr class=""><td>Tre Harris</td><td>LAC</td><td class="num">29</td><td class="num">17</td><td class="num">3.0</td><td class="num">2</td><td><span class="pill bad">model lower</span> <span class=small>(receiving 40+ at +181: model 19%, book 36%)</span></td><td class="small">-</td></tr>
+</tbody></table></div>
+<p class="small">Not modelled (tight ends, backs, rookies without a history): Trey McBride.</p>
+</section>
+<section class="game " id="2026_01_MIA_LV">
+<div class="ghead"><h3>13. MIA Dolphins @ LV Raiders</h3><div class="links">Verify on DraftKings: <a href="https://sportsbook.draftkings.com/leagues/football/nfl?category=games&subcategory=receiving&nav_1=receiving-yards" target="_blank" rel="noopener">receiving yards</a><a href="https://sportsbook.draftkings.com/leagues/football/nfl?category=games&subcategory=receiving&nav_1=receptions" target="_blank" rel="noopener">receptions</a></div></div>
+<div class="gmeta"><b>Sun Sep 13, 4:25 pm ET (1:25 pm PT)</b> &middot; Allegiant Stadium, dome &middot; total <b>40.5</b> &middot; LV favored by 3.5 &middot; weather: indoors</div>
+<div class="scroll"><table><thead><tr><th>Receiver</th><th>Team</th><th class="num">DK median yards</th><th class="num">Model median yards</th><th class="num">DK median catches</th><th class="num">Model median catches</th><th>Model vs book</th><th>Notes</th></tr></thead><tbody>
+<tr class=""><td>Tre Tucker</td><td>LV</td><td class="num">41</td><td class="num">33</td><td class="num">4.1</td><td class="num">3</td><td><span class="pill bad">model lower</span> <span class=small>(receiving 50+ at +157: model 31%, book 39%)</span></td><td class="small">new QB expected; 72% of history with a top target out</td></tr>
+</tbody></table></div>
+<p class="small">Not modelled (tight ends, backs, rookies without a history): Brock Bowers, De&#x27;Von Achane.</p>
+</section>
+<section class="game " id="2026_01_GB_MIN">
+<div class="ghead"><h3>14. GB Packers @ MIN Vikings</h3><div class="links">Verify on DraftKings: <a href="https://sportsbook.draftkings.com/leagues/football/nfl?category=games&subcategory=receiving&nav_1=receiving-yards" target="_blank" rel="noopener">receiving yards</a><a href="https://sportsbook.draftkings.com/leagues/football/nfl?category=games&subcategory=receiving&nav_1=receptions" target="_blank" rel="noopener">receptions</a></div></div>
+<div class="gmeta"><b>Sun Sep 13, 4:25 pm ET (1:25 pm PT)</b> &middot; U.S. Bank Stadium, dome &middot; total <b>45.5</b> &middot; MIN favored by 1.5 &middot; weather: indoors</div>
+<div class="scroll"><table><thead><tr><th>Receiver</th><th>Team</th><th class="num">DK median yards</th><th class="num">Model median yards</th><th class="num">DK median catches</th><th class="num">Model median catches</th><th>Model vs book</th><th>Notes</th></tr></thead><tbody>
+<tr class=""><td>Justin Jefferson</td><td>MIN</td><td class="num">76</td><td class="num">54</td><td class="num">6.6</td><td class="num">5</td><td><span class="pill bad">model lower</span> <span class=small>(receiving 90+ at +173: model 21%, book 37%)</span></td><td class="small">new QB expected</td></tr>
+<tr class=""><td>Christian Watson</td><td>GB</td><td class="num">59</td><td class="num">45</td><td class="num">4.6</td><td class="num">3</td><td><span class="pill bad">model lower</span> <span class=small>(receiving 70+ at +158: model 29%, book 39%)</span></td><td class="small">-</td></tr>
+<tr class=""><td>Jauan Jennings</td><td>MIN</td><td class="num">27</td><td class="num">37</td><td class="num">2.8</td><td class="num">3</td><td><span class="pill ok">model higher</span> <span class=small>(receptions 3+ at +127: model 61%, book 44%)</span></td><td class="small">new team; old-team role in the model; new QB expected</td></tr>
+<tr class=""><td>Jordan Addison</td><td>MIN</td><td class="num">46</td><td class="num">33</td><td class="num">4.1</td><td class="num">3</td><td><span class="pill bad">model lower</span> <span class=small>(receiving 50+ at +120: model 31%, book 46%)</span></td><td class="small">new QB expected</td></tr>
+<tr class=""><td>Jayden Reed</td><td>GB</td><td class="num">41</td><td class="num">34</td><td class="num">4.0</td><td class="num">3</td><td><span class="pill bad">model lower</span> <span class=small>(receiving 50+ at +159: model 31%, book 39%)</span></td><td class="small">-</td></tr>
+<tr class=""><td>Matthew Golden</td><td>GB</td><td class="num">43</td><td class="num">18</td><td class="num">4.1</td><td class="num">2</td><td><span class="pill bad">model lower</span> <span class=small>(receiving 50+ at +142: model 13%, book 41%)</span></td><td class="small">-</td></tr>
+</tbody></table></div>
+<p class="small">Not modelled (tight ends, backs, rookies without a history): T.J. Hockenson, Tucker Kraft.</p>
+</section>
+<section class="game " id="2026_01_DAL_NYG">
+<div class="ghead"><h3>15. DAL Cowboys @ NY Giants</h3><div class="links">Verify on DraftKings: <a href="https://sportsbook.draftkings.com/leagues/football/nfl?category=games&subcategory=receiving&nav_1=receiving-yards" target="_blank" rel="noopener">receiving yards</a><a href="https://sportsbook.draftkings.com/leagues/football/nfl?category=games&subcategory=receiving&nav_1=receptions" target="_blank" rel="noopener">receptions</a></div></div>
+<div class="gmeta"><b>Sun Sep 13, 8:20 pm ET (5:20 pm PT)</b> &middot; MetLife Stadium, outdoors &middot; total <b>48.5</b> &middot; DAL favored by 2.5 &middot; weather: kickoff beyond the forecast horizon; dry assumed</div>
+<div class="scroll"><table><thead><tr><th>Receiver</th><th>Team</th><th class="num">DK median yards</th><th class="num">Model median yards</th><th class="num">DK median catches</th><th class="num">Model median catches</th><th>Model vs book</th><th>Notes</th></tr></thead><tbody>
+<tr class=""><td>Malik Nabers</td><td>NYG</td><td class="num">64</td><td class="num">57</td><td class="num">5.8</td><td class="num">5</td><td><span class="pill bad">model lower</span> <span class=small>(receiving 70+ at +130: model 38%, book 44%)</span></td><td class="small">-</td></tr>
+<tr class=""><td>CeeDee Lamb</td><td>DAL</td><td class="num">78</td><td class="num">60</td><td class="num">6.8</td><td class="num">5</td><td><span class="pill bad">model lower</span> <span class=small>(receiving 90+ at +166: model 25%, book 38%)</span></td><td class="small">-</td></tr>
+<tr class=""><td>George Pickens</td><td>DAL</td><td class="num">71</td><td class="num">61</td><td class="num">5.7</td><td class="num">4</td><td><span class="pill bad">model lower</span> <span class=small>(receiving 80+ at +141: model 34%, book 42%)</span></td><td class="small">-</td></tr>
+</tbody></table></div>
+</section>
+<section class="game " id="2026_01_DEN_KC">
+<div class="ghead"><h3>16. DEN Broncos @ KC Chiefs</h3><div class="links">Verify on DraftKings: <a href="https://sportsbook.draftkings.com/leagues/football/nfl?category=games&subcategory=receiving&nav_1=receiving-yards" target="_blank" rel="noopener">receiving yards</a><a href="https://sportsbook.draftkings.com/leagues/football/nfl?category=games&subcategory=receiving&nav_1=receptions" target="_blank" rel="noopener">receptions</a></div></div>
+<div class="gmeta"><b>Mon Sep 14, 8:15 pm ET (5:15 pm PT)</b> &middot; GEHA Field at Arrowhead Stadium, outdoors &middot; total <b>42.5</b> &middot; KC favored by 3 &middot; weather: kickoff beyond the forecast horizon; dry assumed</div>
+<div class="scroll"><table><thead><tr><th>Receiver</th><th>Team</th><th class="num">DK median yards</th><th class="num">Model median yards</th><th class="num">DK median catches</th><th class="num">Model median catches</th><th>Model vs book</th><th>Notes</th></tr></thead><tbody>
+<tr class=""><td>Rashee Rice</td><td>KC</td><td class="num">66</td><td class="num">50</td><td class="num">6.4</td><td class="num">5</td><td><span class="pill bad">model lower</span> <span class=small>(receptions 7+ at +147: model 32%, book 40%)</span></td><td class="small">-</td></tr>
+<tr class=""><td>Courtland Sutton</td><td>DEN</td><td class="num">46</td><td class="num">45</td><td class="num">4.7</td><td class="num">4</td><td><span class="pill warn">about the same</span></td><td class="small">-</td></tr>
+<tr class=""><td>Jaylen Waddle</td><td>DEN</td><td class="num">59</td><td class="num">45</td><td class="num">5.1</td><td class="num">4</td><td><span class="pill bad">model lower</span> <span class=small>(receptions 6+ at +186: model 24%, book 35%)</span></td><td class="small">new team; old-team role in the model; 65% of history with a top target out</td></tr>
+<tr class=""><td>Xavier Worthy</td><td>KC</td><td class="num">38</td><td class="num">32</td><td class="num">3.8</td><td class="num">3</td><td><span class="pill bad">model lower</span> <span class=small>(receiving 36+ at -113: model 44%, book 53%)</span></td><td class="small">-</td></tr>
+</tbody></table></div>
+<p class="small">Not modelled (tight ends, backs, rookies without a history): Kenneth Walker III, Travis Kelce.</p>
+</section>
+<h2>Considered and rejected</h2>
+<div class="scroll"><table><thead><tr><th>Leg</th><th>Game</th><th class="num">DraftKings</th><th class="num">Model vs price</th><th>Reason it is out</th></tr></thead><tbody>
+<tr><td><b>Drake London (ATL)</b> 80+ receiving yards</td><td class="small">ATL Falcons @ PIT Steelers</td><td class="num mono">+203</td><td class="num">34 vs 33</td><td>The edge vanished once his history with Penix was weighted for Tua Tagovailoa as the likely starter. Drizzle forecast in Pittsburgh. Fair price, not a bet.</td></tr>
+<tr><td><b>Malik Nabers (NYG)</b> 90+ receiving yards</td><td class="small">DAL Cowboys @ NY Giants</td><td class="num mono">+294</td><td class="num">23 vs 25</td><td>Negative after the quarterback weighting. Coming back from an ACL, Sleeper Questionable, and Dallas rebuilt its entire secondary.</td></tr>
+<tr><td><b>Zay Flowers (BAL)</b> 80+ receiving yards</td><td class="small">BAL Ravens @ IND Colts</td><td class="num mono">+167</td><td class="num">44 vs 38</td><td>Cleared to play. Reached 80 yards in only 4 of 17 games last year, under what the book already pays. The model&#x27;s tail, not the record.</td></tr>
+<tr><td><b>DK Metcalf (PIT)</b> 60+ receiving yards</td><td class="small">ATL Falcons @ PIT Steelers</td><td class="num mono">+159</td><td class="num">43 vs 39</td><td>Says he is 100%. Reached 60 yards in 4 of 15 games last year. Same objection.</td></tr>
+<tr><td><b>Michael Wilson (ARI)</b> 50+ receiving yards</td><td class="small">ARI Cardinals @ LA Chargers</td><td class="num mono">+127</td><td class="num">53 vs 44</td><td>A fifth of his history is games Harrison missed. Brissett is the confirmed starter and Harrison is expected to be featured. The book prices the WR2 he is when Harrison plays.</td></tr>
+<tr><td><b>Puka Nacua (LA)</b> 110+ receiving yards</td><td class="small">SF 49ers @ LA Rams</td><td class="num mono">+171</td><td class="num">40 vs 37</td><td>No real edge, a possible Week 1 suspension, and a neutral-site game in Melbourne.</td></tr>
+</tbody></table></div>
 <h2>How the picks are made</h2>
-<p>A simulation of each game, thousands of times, built from each player's route share, target rate, depth of target, catch rate and yards per catch, both teams' tempo, the total and spread, the opponent's pass defense, venue, kickoff window and forecast. Teammates share the game's pass volume, so paired legs are priced together. A leg makes the list only when the model's number beats the price by a clear margin, the player's own record supports it, and a plain-language reason survives.</p>
-<div class="scroll"><table>
-<thead><tr><th>What the model discounts</th><th>Why</th></tr></thead>
-<tbody>
-<tr><td>Games a teammate missed count at 30%</td><td>Volume earned while the top target sat is not a role. This removed Michael Wilson (ARI) from the list</td></tr>
-<tr><td>Games under a different quarterback count at 50%</td><td>A receiver's numbers travel with his passer. This removed London and Nabers</td></tr>
-<tr><td>Deep rungs (100+, 120+ yards) are excluded</td><td>The model's tails are accurate but carry no skill against the book</td></tr>
-<tr><td>Players on a new team are shown, never picked</td><td>Their history is another offense's role</td></tr>
-</tbody></table></div>
-
+<p>Each game is simulated thousands of times from every receiver's route share, target rate, depth of target, catch rate and yards per catch, both teams' tempo, the total and spread, the opponent's pass defense, venue, kickoff window and forecast. Teammates share the game's pass volume, so paired legs are priced together. A leg makes the list only when the model's number beats the price by a clear margin, the player's own record supports it, and a plain-language reason survives. Games a teammate missed count at 30%, games under a different quarterback at 50%, deep rungs are excluded, and players on a new team are shown but never picked.</p>
 <h2>What happens next</h2>
-<div class="scroll"><table>
-<thead><tr><th>When</th><th>What</th></tr></thead>
-<tbody>
+<div class="scroll"><table><thead><tr><th>When</th><th>What</th></tr></thead><tbody>
 <tr><td>Friday</td><td>New capture after the injury report; rerun; the two picks either hold or fall</td></tr>
 <tr><td>Sunday, kickoff</td><td>Closing capture</td></tr>
-<tr><td>Monday</td><td>Every logged rung scored against the result and the closing line. That score, not any pick above, is the week's real output</td></tr>
+<tr><td>Monday</td><td>Every logged rung scored against the result and the closing line. That score, not any pick above, is the week&#x27;s real output</td></tr>
 </tbody></table></div>
-
-<footer>Sources checked 2026-09-02: Yahoo Sports (Meyers hand), Heavy and Yahoo (Lions), Athlon (Flowers), RotoWire (Metcalf), NBC Sports (Brissett), Bleacher Report and SI (Nabers), SI and Rams.com (Nacua), Dallas Cowboys and PFF (Dallas secondary). Odds are DraftKings prices at capture and move; check the slip before placing anything. This is analysis, not advice.</footer>
+<footer>Sources checked 2026-09-02: Yahoo Sports (Meyers hand), Heavy and Yahoo (Lions), Athlon (Flowers), RotoWire (Metcalf), NBC Sports (Brissett), Bleacher Report and SI (Nabers), SI and Rams.com (Nacua), Dallas Cowboys and PFF (Dallas secondary). Odds are DraftKings prices at capture and move; check the ladder before placing anything. This is analysis, not advice.</footer>
 </main>
