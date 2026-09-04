@@ -1,0 +1,192 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>How the Picks Are Made</title>
+<style>
+:root{--bg:#f4f5f2;--card:#ffffff;--ink:#17202a;--mute:#5d6672;--line:#dfe3df;--navy:#14213d;--navy-ink:#ffffff;--link:#0b57d0;
+--ok:#1f6f43;--ok-bg:#e6f2ea;--bad:#9a2f2f;--bad-bg:#f8e7e7;--warn:#8a6d1f;--warn-bg:#fbf1dc;--alt:#f7f8f6;--pick:#fff8e6}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#121417;--card:#1b1f24;--ink:#e9ebe7;--mute:#a4adb7;--line:#2b3138;--navy:#2b3a5c;--navy-ink:#ffffff;--link:#8ab4f8;
+--ok:#6cc79a;--ok-bg:#16301f;--bad:#e38a8a;--bad-bg:#3a1c1c;--warn:#d9b45a;--warn-bg:#3a2f14;--alt:#20252b;--pick:#33301f}}
+:root[data-theme="dark"]{--bg:#121417;--card:#1b1f24;--ink:#e9ebe7;--mute:#a4adb7;--line:#2b3138;--navy:#2b3a5c;--navy-ink:#ffffff;--link:#8ab4f8;
+--ok:#6cc79a;--ok-bg:#16301f;--bad:#e38a8a;--bad-bg:#3a1c1c;--warn:#d9b45a;--warn-bg:#3a2f14;--alt:#20252b;--pick:#33301f}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 "IBM Plex Sans",-apple-system,Helvetica,Arial,sans-serif}
+main{max-width:1080px;margin:0 auto;padding:24px 20px 72px}
+a{color:var(--link)}
+h1{font-size:30px;margin:0 0 6px;letter-spacing:-0.01em;text-wrap:balance}
+h2{font-size:19px;margin:30px 0 10px;padding-bottom:6px;border-bottom:2px solid var(--navy)}
+h3{font-size:17px;margin:0 0 4px}
+p{margin:0 0 10px;max-width:78ch}
+.eyebrow{font:500 12px/1 "IBM Plex Mono",ui-monospace,monospace;letter-spacing:0.08em;text-transform:uppercase;color:var(--mute);margin-bottom:10px}
+.frame{font-size:16px;margin:4px 0 6px;max-width:78ch}
+.meta{color:var(--mute);font-size:13px;margin:0 0 12px}
+details.how{margin:0 0 8px;border:1px solid var(--line);border-radius:8px;padding:8px 14px;background:var(--card)}
+details.how summary{cursor:pointer;font-weight:600}
+details.how p{margin:8px 0 4px;font-size:14px}
+.notice{background:var(--warn-bg);border-left:4px solid var(--warn);padding:10px 14px;border-radius:6px;margin:10px 0}
+/* views */
+input.v{position:absolute;opacity:0;pointer-events:none}
+.seg{position:sticky;top:0;z-index:5;display:flex;gap:6px;align-items:center;background:var(--bg);padding:10px 0 8px;border-bottom:1px solid var(--line);margin:8px 0 14px}
+.seg label{flex:1;text-align:center;padding:9px 10px;border:1px solid var(--line);border-radius:8px;background:var(--card);cursor:pointer;font-weight:600;font-size:14px;user-select:none}
+.seg label:hover{border-color:var(--navy)}
+.seg a.top{font-size:12.5px;padding:8px 10px;color:var(--mute);text-decoration:none;white-space:nowrap}
+.view{display:none}
+#v-picks:checked~#view-picks,#v-games:checked~#view-games,#v-odds:checked~#view-odds{display:block}
+#v-picks:checked~.seg label[for=v-picks],#v-games:checked~.seg label[for=v-games],#v-odds:checked~.seg label[for=v-odds]{background:var(--navy);color:var(--navy-ink);border-color:var(--navy)}
+input.v:focus-visible~.seg label{outline:2px solid var(--link)}
+/* cards */
+.game{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 18px;margin:14px 0}
+.game.haspick{border-color:var(--ok)}
+.ghead{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:baseline;justify-content:space-between}
+.verify{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:13px;color:var(--mute)}
+.verify a{font-size:12.5px;padding:3px 9px;border:1px solid var(--link);border-radius:999px;color:var(--link);text-decoration:none;font-weight:600}
+.verify a:hover{background:var(--alt)}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px 16px;margin:8px 0 12px;padding:10px 12px;background:var(--alt);border-radius:8px}
+.facts div{display:flex;flex-direction:column;gap:2px}
+.facts .wide{grid-column:span 2}
+.k{font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--mute)}
+.facts .v{font-size:14px}
+.label{font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--mute);margin:14px 0 4px;font-weight:600}
+.verdict{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap;margin:6px 0 4px}
+.why{background:var(--alt);border-left:4px solid var(--navy);padding:10px 14px;border-radius:6px;margin:8px 0}
+.game.haspick .why{border-left-color:var(--ok)}
+.legend{font-size:13px;color:var(--mute);margin:0 0 6px}
+.scroll{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-variant-numeric:tabular-nums;margin:8px 0 6px}
+th{background:var(--navy);color:var(--navy-ink);text-align:left;padding:8px 10px;font-size:12.5px;font-weight:600;white-space:nowrap}
+td{padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top;font-size:14px}
+tbody tr:nth-child(even) td{background:var(--alt)}
+tr.pick td{background:var(--pick)!important;font-weight:600}
+tr.sliphead td{background:var(--alt)!important;color:var(--mute);border-top:2px solid var(--line);padding:10px 10px 4px;font-size:13px}
+tr.sliptotal td{background:var(--card)!important;border-top:2px solid var(--navy);border-bottom:none;padding:9px 10px 12px;font-weight:600}
+tr.reasons td{background:var(--card)!important;padding:2px 10px 8px 28px;border-bottom:1px dashed var(--line)}
+ul.rs{margin:0;padding-left:18px}
+ul.rs li{font-size:13.5px;margin:2px 0;max-width:90ch}
+td.num,th.num{text-align:right;white-space:nowrap}
+.pill{display:inline-block;padding:2px 10px;border-radius:999px;font-size:12px;font-weight:700;white-space:nowrap;letter-spacing:0.04em;text-transform:uppercase}
+.ok{background:var(--ok-bg);color:var(--ok)}.bad{background:var(--bad-bg);color:var(--bad)}.warn{background:var(--warn-bg);color:var(--warn)}
+.mono{font-family:"IBM Plex Mono",ui-monospace,monospace;font-weight:500}
+.small{font-size:13px;color:var(--mute)}
+.tag{font-size:12.5px;color:var(--mute);font-weight:400}
+.toc{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 0}
+.toc a{font-size:12.5px;padding:4px 9px;border:1px solid var(--line);border-radius:999px;color:var(--ink);text-decoration:none;background:var(--card)}
+.toc a.haspick{border-color:var(--ok);color:var(--ok);font-weight:600}
+footer{margin-top:40px;color:var(--mute);font-size:13px;border-top:1px solid var(--line);padding-top:14px}
+details.more{margin:14px 0}
+details.more summary{cursor:pointer;font-weight:600;color:var(--navy)}
+h4{font-size:14px;margin:14px 0 4px}
+td.chips{white-space:normal;line-height:1.9}
+.chip{display:inline-block;border:1px solid var(--line);border-radius:6px;padding:1px 7px;margin:2px 4px 2px 0;font-size:12.5px;background:var(--card)}
+.chip.up{border-color:var(--ok);background:var(--ok-bg)}
+.chip.down{border-color:var(--bad);background:var(--bad-bg)}
+table.ladder td{vertical-align:top}
+.dksec{margin:6px 0 2px}
+.dksec h4{margin:10px 0 2px}
+.dkline{font-size:16px;font-weight:700;font-variant-numeric:tabular-nums}
+.dko{font-size:13px;margin-left:4px}
+td.dkcell{white-space:nowrap}
+td.pickcell{box-shadow:inset 0 0 0 2px var(--ok);border-radius:4px}
+details.alts{margin:2px 0 8px}
+details.alts summary{cursor:pointer;font-size:13px;color:var(--mute)}
+.altmk{font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--mute);margin:8px 0 0}
+table.ladder td.altname{width:170px;font-size:13px}
+table.ladder{margin:2px 0}
+.chip{padding:0 6px;font-size:12px;margin:1px 3px 1px 0}
+table.engine td{font-size:13px}
+@media (max-width:640px){
+ main{padding:14px 12px 60px}
+ h1{font-size:23px}
+ .seg label{padding:8px 6px;font-size:13px}
+ .seg a.top{display:none}
+ .facts .wide{grid-column:span 1}
+ td,th{font-size:13px}
+ table.cards thead{display:none}
+ table.cards tr{display:block;border-bottom:1px solid var(--line);padding:6px 0}
+ table.cards tbody tr:nth-child(even) td{background:transparent}
+ table.cards td{display:flex;justify-content:space-between;gap:12px;border:0;padding:3px 6px;text-align:left}
+ table.cards td.num{text-align:right}
+ table.cards td[data-l]::before{content:attr(data-l);color:var(--mute);font-size:12px;flex:0 0 38%;text-align:left;font-family:"IBM Plex Sans",-apple-system,Helvetica,Arial,sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:0.04em}
+ table.cards tr.sliphead td,table.cards tr.sliptotal td[colspan]{display:block;background:var(--alt)!important}
+ table.cards tr.reasons td{display:block;padding:2px 6px 8px 6px}
+ table.cards tr.sliptotal td{background:var(--card)!important}
+ table.cards tr.sliptotal td[colspan]{margin-bottom:4px}
+ table.cards td.empty,table.cards td:empty{display:none}
+}
+@media (prefers-reduced-motion: no-preference){html{scroll-behavior:smooth}}
+
+.doc p{max-width:78ch} .doc h2{margin-top:36px} .doc li{margin:4px 0;max-width:80ch} .doc table{max-width:820px}</style>
+<main class="doc">
+<header>
+<div class="eyebrow">Prop Edge Engine &middot; methodology</div>
+<h1>How the picks are made</h1>
+<p class="frame"><b>The idea in one sentence:</b> we work out for ourselves how often a player should clear a number, compare that to what DraftKings is charging, bet only where our number is clearly higher and the football facts agree, and then keep score in public.</p>
+<p class="meta">Written September 4, 2026. <a href="2026-wk01.html">Back to the Week 1 picks</a>.</p>
+</header>
+
+<h2>1. What we are trying to do</h2>
+<p>A sportsbook prices every player bet with a margin built in. Our job is to find the handful of prices each week that are too generous, bet those, and skip everything else. The engine does the arithmetic; a person does the football check; the scoreboard on Monday says whether either of us was right.</p>
+
+<h2>2. Where our numbers come from</h2>
+<p>We have six seasons of every NFL play. From that, before every game, we build a picture of each offense and then play the game out thousands of times on a computer. Each replay decides how many plays the team runs, how many are passes, who gets the ball, whether it is caught, how far it goes, who scores. Count how often a player clears a number across all the replays and you have our chance for that bet.</p>
+<p>What goes into the replays:</p>
+<ul>
+<li><b>The player's own record.</b> How often he is on the field for passes, how often he gets the ball, what he does with it, how many carries he gets. Recent games count more than old ones. A player's first weeks with a new team lean on last season until real games arrive.</li>
+<li><b>The game.</b> His team's pace, the total and the point spread, home or away, night game, indoors or out.</li>
+<li><b>The weather.</b> The forecast for the kickoff hour: rain takes about 6 yards off a receiver's day, wind over 15 mph shortens the passing game. Indoor games have no weather term.</li>
+<li><b>The defense.</b> What the opponent allowed last year and so far this year, measured five ways: yards per target, catch rate, passing touchdowns per throw, yards per carry, rushing touchdowns per carry. We tested how much defense really carries from week to week and the answer is: less than people think. So it moves the number only a little, and every card prints the actual figures and the rank so you can see it.</li>
+<li><b>Who is throwing.</b> The quarterback expected to start. If he is new, games under the old one count half.</li>
+<li><b>Missing teammates.</b> Games where a key teammate sat count less, so a receiver's numbers are not inflated by a month when the star was hurt.</li>
+<li><b>The whole offense at once.</b> A quarterback's passing yards are the sum of his receivers' yards in the same replay, and a back's carries fall in the replays where the passing volume drops. That is what lets us price two bets from one game together honestly.</li>
+</ul>
+<p>What we deliberately leave out: a player's past games against this particular opponent (one or two games, mostly noise), and hunches.</p>
+
+<h2>3. How we read the book</h2>
+<p>DraftKings lists each bet as a ladder: 50 yards or more at one price, 60 or more at another, and so on. We capture every rung of every ladder for every game, anonymously, with no account. Each price converts to "how often the book says this hits." Our number sits next to it. The gap between the two is the only reason to bet.</p>
+
+<h2>4. How we know the engine is worth listening to</h2>
+<p>Before anything went on a page, we ran the engine on the 2023, 2024 and 2025 seasons as if live: each week priced using only what was known before kickoff, then scored against what happened. We compare it to the simplest guess anyone could make, the player's season average. Lower score is better.</p>
+<div class="scroll"><table><thead><tr><th>Bet type</th><th class="num">Engine</th><th class="num">Season average</th><th class="num">Weeks the engine won</th></tr></thead><tbody><tr><td>Receptions</td><td class='num'>0.1256</td><td class='num'>0.1323</td><td class='num'>42 of 42</td></tr><tr><td>Receiving yards (tight ends and backs; receivers tested separately, same result)</td><td class='num'>0.0953</td><td class='num'>0.0991</td><td class='num'>39 of 42</td></tr><tr><td>Rushing yards</td><td class='num'>0.1130</td><td class='num'>0.1162</td><td class='num'>33 of 42</td></tr><tr><td>Passing yards</td><td class='num'>0.1856</td><td class='num'>0.1961</td><td class='num'>28 of 42</td></tr><tr><td>Passing touchdowns</td><td class='num'>0.1886</td><td class='num'>0.1999</td><td class='num'>32 of 42</td></tr><tr><td>Anytime touchdown</td><td class='num'>0.1444</td><td class='num'>0.1582</td><td class='num'>42 of 42</td></tr></tbody></table></div>
+<p>It beats the simple guess in every bet type, in most weeks. Two honest caveats. It has <b>not</b> shown any advantage in Week 1, when there is no current-season data, so Week 1 picks are arguments, not proof. And beating a simple guess is not the same as beating the book, which prices with real skill. Only the Monday scoreboard settles that, week by week.</p>
+
+<h2>5. How a bet becomes a pick</h2>
+<ol>
+<li><b>Our number must be clearly higher than the book's.</b> At least 3 percentage points, and only on bets the book prices between about 35% and 75%. Very long shots and near-certainties are excluded because the engine has shown no skill there.</li>
+<li><b>The player must have actually done it.</b> Last season he cleared that exact number at least as often as the price says, over six or more games. No exceptions.</li>
+<li><b>No red flags.</b> Not on a new team, not with a new quarterback, not a record built while a star teammate was out. Those players are shown but never picked.</li>
+<li><b>The defense check.</b> Every pick prints what the opponent allowed last year, the league average, and the rank. If the opponent is among the eight toughest for that kind of bet, the pick survives only if our edge is at least 5 points. That rule is why Meyers stayed a Play against Cleveland and St. Brown did not against New Orleans.</li>
+<li><b>The football check.</b> A person reads the injury report and the news: trades, roles, what the coaches and beat writers are saying. This is written into the pick as bullets so you can see the reasoning, not just the number.</li>
+</ol>
+<p>Then one of three words: <b>Play</b> (we would bet it), <b>Lean</b> (we like it but something real gets in the way; not bet, out of parlays), <b>Pass</b> (the price is fair or too short). The engine grades every player on its own first; the sheet is what survives the football check. When the two disagree, the page shows both.</p>
+
+<h2>6. Parlays</h2>
+<ul>
+<li>Only from Plays. A Lean never goes in.</li>
+<li>Legs from different games multiply exactly, so the price we show is the price DraftKings will show. Legs from the same game get repriced by the book, and we say so.</li>
+<li>Every added leg multiplies the payout and the chance of losing alike. Our edge multiplies too, but so does our error: if we are a few points too optimistic on every leg, a five-leg slip is wrong by a lot more than a single. A slip that hits once in a hundred weeks also teaches us nothing on Monday. So the singles are the bet, the two- and three-leg combinations are the parlay, and the long ones are tickets.</li>
+</ul>
+
+<h2>7. The weekly rhythm</h2>
+<ul>
+<li><b>Friday, 4 pm ET.</b> The league's injury report. At 4:30 pm ET the engine captures every DraftKings ladder, reruns the numbers, logs every bet it priced, and rebuilds the page. A person then reviews the picks and publishes.</li>
+<li><b>Sunday, before kickoff.</b> A closing capture, so we know where the market ended up.</li>
+<li><b>Monday.</b> Every bet the engine priced on Friday, thousands of them, is scored against the result and against the closing price. That score, not the picks, is the real product. Over a season it tells us whether the engine beats the book, and where.</li>
+</ul>
+
+<h2>8. What we know we do not know</h2>
+<ul>
+<li>No proven skill in Week 1.</li>
+<li>Injury reports are checked by hand this season until the automatic feed is live.</li>
+<li>Only the over side of each line is captured; under prices are not shown.</li>
+<li>A quarterback's number depends on how many of his receivers the book lists; we now capture the full list every week to keep that stable.</li>
+<li>Defense is in the numbers but moves them little, because that is what the data shows.</li>
+<li>Every claim on a card is a number with a source. If a number is wrong we say so on the page and fix it, as we did with Seattle's touchdown rank.</li>
+</ul>
+
+<h2>Words on the page</h2>
+<ul>
+<li><b>Book says</b>: how often the price says the bet should hit.</li>
+<li><b>Model says</b>: how often we think it hits.</li>
+<li><b>Edge</b>: the gap between the two, in percentage points.</li>
+<li><b>2025 record</b>: how often the player actually cleared that number last season.</li>
+<li><b>$10 returns</b>: what a $10 bet pays back including the stake.</li>
+<li><b>Product</b>: the leg prices multiplied together, which is exactly what a cross-game parlay pays.</li>
+</ul>
+<footer>Prop Edge Engine, September 2026. This is analysis, not advice.</footer>
+</main></body></html>
