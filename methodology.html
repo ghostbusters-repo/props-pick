@@ -116,13 +116,13 @@ table.engine td{font-size:13px}
 <header>
 <div class="eyebrow">Prop Edge Engine &middot; methodology</div>
 <h1>How the picks are made</h1>
-<p class="frame"><b>The idea in one sentence:</b> we work out for ourselves how often a player should clear a number, compare that to what DraftKings is charging, bet only where our number is clearly higher and the football facts agree, and then keep score in public.</p>
+<p class="frame"><b>The idea in one sentence:</b> find player performances that are achievable, judged by what the player has done and what he should do against this opponent, where the book's odds are more favorable than that performance deserves, and then combine those favorable bets into parlays for a higher return.</p>
 <p class="meta">Written September 4, 2026. <a href="2026-wk01.html">Back to the Week 1 picks</a>.</p>
 </header>
 
 <h2>1. What we are trying to do</h2>
-<p>A sportsbook prices every player bet with a margin built in. Our job is to find the handful of prices each week that are too generous, bet those, and skip everything else. The engine does the arithmetic; a person does the football check; the scoreboard on Monday says whether either of us was right.</p>
-
+<p>This is not a hunt for mispriced odds for their own sake. The question we ask of every player, every week, is: <b>what is he likely to do in this game, and is the book paying us more than that performance deserves?</b> "Likely to do" rests on two things: what he has done, and what he should do against this opponent, this defense, this game. When the answer is yes, that bet is favorable. Favorable bets from different games are then combined into parlays, because that is how a set of individually sound bets turns into a meaningful return.</p>
+<p>So the order of work is: achievable performance first, price second, parlay third. The engine does the arithmetic on the first two; a person checks the football; Monday's scoreboard tells us how well we judged all three.</p>
 <h2>2. Where our numbers come from</h2>
 <p>We have six seasons of every NFL play. From that, before every game, we build a picture of each offense and then play the game out thousands of times on a computer. Each replay decides how many plays the team runs, how many are passes, who gets the ball, whether it is caught, how far it goes, who scores. Count how often a player clears a number across all the replays and you have our chance for that bet.</p>
 <p>What goes into the replays:</p>
@@ -130,7 +130,7 @@ table.engine td{font-size:13px}
 <li><b>The player's own record.</b> How often he is on the field for passes, how often he gets the ball, what he does with it, how many carries he gets. Recent games count more than old ones. A player's first weeks with a new team lean on last season until real games arrive.</li>
 <li><b>The game.</b> His team's pace, the total and the point spread, home or away, night game, indoors or out.</li>
 <li><b>The weather.</b> The forecast for the kickoff hour: rain takes about 6 yards off a receiver's day, wind over 15 mph shortens the passing game. Indoor games have no weather term.</li>
-<li><b>The defense.</b> What the opponent allowed last year and so far this year, measured five ways: yards per target, catch rate, passing touchdowns per throw, yards per carry, rushing touchdowns per carry. We tested how much defense really carries from week to week and the answer is: less than people think. So it moves the number only a little, and every card prints the actual figures and the rank so you can see it.</li>
+<li><b>The defense.</b> What the opponent allowed last year and so far this year, measured five ways: yards per target, catch rate, passing touchdowns per throw, yards per carry, rushing touchdowns per carry. We tested how much defense really carries from week to week and the answer is: less than people think. So it moves the number only a little, and every card prints the actual figures and the rank so you can see it. <b>Not yet in:</b> how the defense plays, such as how often it blitzes or whether it leans on man or zone coverage. That is the next build (see section 8).</li>
 <li><b>Who is throwing.</b> The quarterback expected to start. If he is new, games under the old one count half.</li>
 <li><b>Missing teammates.</b> Games where a key teammate sat count less, so a receiver's numbers are not inflated by a month when the star was hurt.</li>
 <li><b>The whole offense at once.</b> A quarterback's passing yards are the sum of his receivers' yards in the same replay, and a back's carries fall in the replays where the passing volume drops. That is what lets us price two bets from one game together honestly.</li>
@@ -175,7 +175,7 @@ table.engine td{font-size:13px}
 <li>Injury reports are checked by hand this season until the automatic feed is live.</li>
 <li>Only the over side of each line is captured; under prices are not shown.</li>
 <li>A quarterback's number depends on how many of his receivers the book lists; we now capture the full list every week to keep that stable.</li>
-<li>Defense is in the numbers but moves them little, because that is what the data shows.</li>
+<li>Defense is in the numbers as what it allows, but not yet as how it plays. Blitz rate and pass-rusher counts are available play by play from 2022 on and are the next term to build and test: a receiver who wins against the blitz, or a quarterback who does not, is exactly the kind of matchup this engine is meant to find. Man-versus-zone coverage tendencies are not in any free data set; adding them means a paid charting source.</li>
 <li>Every claim on a card is a number with a source. If a number is wrong we say so on the page and fix it, as we did with Seattle's touchdown rank.</li>
 </ul>
 
